@@ -1,4 +1,4 @@
-public class QueuedBoundedStack<T> implements IBoundedStack<T>{
+class QueuedBoundedStack<T> implements IBoundedStack<T>{
     private ICircularBoundedQueue<T> queue1;
     private ICircularBoundedQueue<T> queue2;
 
@@ -32,8 +32,10 @@ public class QueuedBoundedStack<T> implements IBoundedStack<T>{
 
     @Override
     public void flush() {
-        queue1.flush();
-        queue2.flush();
+        if (!queue1.isEmpty())
+            queue1.flush();
+        if (!queue2.isEmpty())
+            queue2.flush();
     }
 
     @Override

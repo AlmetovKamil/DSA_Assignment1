@@ -1,4 +1,4 @@
-public interface ICircularBoundedQueue<T> {
+interface ICircularBoundedQueue<T> {
     void offer(T value); // insert an element to the rear of the queue
 
     // overwrite the oldest elements

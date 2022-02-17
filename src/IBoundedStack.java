@@ -1,4 +1,4 @@
-public interface IBoundedStack<T> {
+interface IBoundedStack<T> {
     void push(T value); // push an element onto the stack
 
     // remove the oldest element

@@ -1,4 +1,4 @@
-public class ArrayCircularBoundedQueue<T> implements ICircularBoundedQueue<T>{
+class ArrayCircularBoundedQueue<T> implements ICircularBoundedQueue<T>{
     private T[] elements;
     private final int capacity;
     private int size;
@@ -30,6 +30,7 @@ public class ArrayCircularBoundedQueue<T> implements ICircularBoundedQueue<T>{
     public T poll() throws NullPointerException {
         if (isEmpty()) throw new NullPointerException("Can't poll from an empty queue");
         T tmp = elements[startId];
+        elements[startId] = null;
         startId = (startId + 1) % capacity;
         size--;
         return tmp;
@@ -42,11 +43,11 @@ public class ArrayCircularBoundedQueue<T> implements ICircularBoundedQueue<T>{
     }
 
     @Override
-    public void flush() throws NullPointerException{
+    public void flush() throws NullPointerException {
         if (isEmpty()) throw new NullPointerException("Can't flush from an empty queue");
-        startId = 0;
-        endId = 0;
-        size = 0;
+        while (!isEmpty()) {
+            poll();
+        }
     }
 
     @Override
@@ -61,7 +62,7 @@ public class ArrayCircularBoundedQueue<T> implements ICircularBoundedQueue<T>{
 
     @Override
     public int size() {
-        return (capacity + endId - startId + 1) % capacity;
+        return size;
     }
 
     @Override
