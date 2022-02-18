@@ -1,23 +1,56 @@
+/**
+ * An interface for Bounded Stack
+ *
+ * @param <T> the type of elements in the stack
+ * @author Kamil Almetov BS21-05
+ */
+//TODO
 interface IBoundedStack<T> {
-    void push(T value); // push an element onto the stack
+    /**
+     * Push a value onto the stack. Remove the oldest element when the stack is full.
+     */
+    void push(T value);
 
-    // remove the oldest element
-// when if stack is full
-    T pop(); // remove an element from the top of the stack
+    /**
+     * Remove an element from the top of the stack
+     *
+     * @return removed element
+     */
+    T pop();
 
-    T top(); // look at the element at the top of the stack
+    /**
+     * Look at the element at the top of the stack (without removing it)
+     *
+     * @return the top element
+     */
+    T top();
 
-    // (without removing it)
+    /**
+     * Remove all elements from the stack
+     */
     void flush();
 
-    // remove all elements from the stack
-    boolean isEmpty(); // is the stack empty?
+    /**
+     * Is the stack empty?
+     *
+     * @return true if the stack is empty
+     */
+    boolean isEmpty();
 
+    /**
+     * Is the stack full?
+     *
+     * @return true if the stack is full
+     */
     boolean isFull();
 
-    // is the stack full?
+    /**
+     * @return the number of elements in the stack
+     */
     int size();
 
-    // number of elements
-    int capacity(); // maximum capacity
+    /**
+     * @return maximum size of the stack
+     */
+    int capacity();
 }
