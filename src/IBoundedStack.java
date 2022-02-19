@@ -4,7 +4,6 @@
  * @param <T> the type of elements in the stack
  * @author Kamil Almetov BS21-05
  */
-//TODO
 interface IBoundedStack<T> {
     /**
      * Push a value onto the stack. Remove the oldest element when the stack is full.

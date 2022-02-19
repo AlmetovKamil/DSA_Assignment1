@@ -1,5 +1,6 @@
 /**
  * The implementation of IBoundedStack based on 2 circular bounded queues.
+ * It was tested by just creating an object of the class and applying all methods in the concrete example.
  *
  * @param <T> the type of elements in the stack
  * @author Kamil Almetov BS21-05
@@ -8,8 +9,8 @@
 class QueuedBoundedStack<T> implements IBoundedStack<T> {
     //In queue1 we store all elements in the correct order.
     //queue2 is needed to keep the order correct when we do push operation.
-    private ICircularBoundedQueue<T> queue1;
-    private ICircularBoundedQueue<T> queue2;
+    private final ICircularBoundedQueue<T> queue1;
+    private final ICircularBoundedQueue<T> queue2;
 
     /**
      * The constructor with 1 parameter. Initializes the queues with given capacity.

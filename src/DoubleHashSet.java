@@ -1,6 +1,7 @@
 /**
  * class for Double Hash Set.
  * Double hashing is used as a base of ISet implementation.
+ * It was tested by just creating an object of the class and applying all methods in the concrete example.
  *
  * @param <T> type of the elements
  * @author Kamil Almetov BS21-05
@@ -21,11 +22,13 @@ class DoubleHashSet<T> implements ISet<T> {
     /**
      * maximum size of elements. It's a prime number to avoid collisions as much as we can
      */
-    private static final int capacity = 100003;
+    // for task C capacity = 10069
+    private static final int capacity = 10069;
     /**
      * prime number that is used to calculate hashcode2
      */
-    private static final int prime = 100019;
+    // for task C capacity = 10067
+    private static final int prime = 10067;
     /**
      * number of elements
      */
@@ -37,6 +40,7 @@ class DoubleHashSet<T> implements ISet<T> {
      * This function is needed only for internal logic, that's why it's private static
      * <br>
      * <b>Time complexity (worst case) - O(1)</b>
+     *
      * @param item for which hashcode1 is calculated
      */
     private static <T> int hashcode1(T item) {
@@ -49,6 +53,7 @@ class DoubleHashSet<T> implements ISet<T> {
      * This function is needed only for internal logic, that's why it's private static
      * <br>
      * <b>Time complexity (worst case) - O(1)</b>
+     *
      * @param item for which hashcode2 is calculated
      */
     private static <T> int hashcode2(T item) {
@@ -60,6 +65,7 @@ class DoubleHashSet<T> implements ISet<T> {
      * This function is needed only for internal logic, that's why it's private static
      * <br>
      * <b>Time complexity (worst case) - O(1)</b>
+     *
      * @param h1 hashcode1
      * @param h2 hashcode2
      * @param j  number from 0 to capacity, is needed to calculate key in double hashing
@@ -87,6 +93,7 @@ class DoubleHashSet<T> implements ISet<T> {
      * Constructor with one element. It's needed to create a copy of a set.
      * <br>
      * <b>Time complexity (worst case) - O(n) (n - number of elements)</b>
+     *
      * @param set that will be copied
      */
     public DoubleHashSet(DoubleHashSet<T> set) {
@@ -100,8 +107,9 @@ class DoubleHashSet<T> implements ISet<T> {
 
     /**
      * <b>Time complexity (worst case) - O(n) (n - number of elements)</b>
-     * @see ISet#add(T)
+     *
      * @param item that will be added
+     * @see ISet#add(T)
      */
     @Override
     public void add(T item) {
@@ -132,8 +140,9 @@ class DoubleHashSet<T> implements ISet<T> {
 
     /**
      * <b>Time complexity (worst case) - O(n) (n - number of elements)</b>
-     * @see ISet#remove(T)
+     *
      * @param item that will be removed
+     * @see ISet#remove(T)
      */
     @Override
     public void remove(T item) {
@@ -161,9 +170,10 @@ class DoubleHashSet<T> implements ISet<T> {
 
     /**
      * <b>Time complexity (worst case) - O(n) (n - number of elements)</b>
-     * @see ISet#contains(T)
+     *
      * @param item that is checked
      * @return true if the item is presented in the set
+     * @see ISet#contains(T)
      */
     @Override
     public boolean contains(T item) {
@@ -189,8 +199,9 @@ class DoubleHashSet<T> implements ISet<T> {
 
     /**
      * <b>Time complexity (worst case) - O(1)</b>
-     * @see ISet#size()
+     *
      * @return number of elements of the set
+     * @see ISet#size()
      */
     @Override
     public int size() {
@@ -199,8 +210,9 @@ class DoubleHashSet<T> implements ISet<T> {
 
     /**
      * <b>Time complexity (worst case) - O(1)</b>
-     * @see ISet#isEmpty()
+     *
      * @return true if the set is empty
+     * @see ISet#isEmpty()
      */
     @Override
     public boolean isEmpty() {
@@ -211,6 +223,7 @@ class DoubleHashSet<T> implements ISet<T> {
      * Create string representation of the set - all elements are represented in a row with space delimiter
      * <br>
      * <b>Time complexity (worst case) - O(n) (n - number of elements)</b>
+     *
      * @return string representation of the set
      */
     @Override

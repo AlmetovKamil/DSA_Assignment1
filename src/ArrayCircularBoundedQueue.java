@@ -10,7 +10,7 @@ class ArrayCircularBoundedQueue<T> implements ICircularBoundedQueue<T> {
     /**
      * Array that store the elements of the queue
      */
-    private T[] elements;
+    private final T[] elements;
     /**
      * Maximum size of the queue
      */
